@@ -11,7 +11,7 @@ public class TodoItemController {
     private final Logger logger =  LoggerFactory.getLogger(TodoItemController.class);
     @GetMapping("/")
     public ModelAndView index() {
-        logger.info("eoeoeo");
+        logger.info("eoeoeoDODODO");
         ModelAndView modelAndView = new ModelAndView("index");
         return modelAndView;
     }
