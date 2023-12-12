@@ -1,0 +1,39 @@
+#dziala to w kolejnosci jak python to indetowanie ze jest np. spring.aplication.name
+#oraz spring.datasource.url, spring.datasource.username ale nie mozna przykladowo spring.datasource.jpa
+server:
+  port: 9090
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            token-uri: http://localhost:8080/auth/realms/TODOAPP/protocol/openid-connect/token
+            authorization-uri: http://localhost:8080/auth/realms/TODOAPP/protocol/openid-connect/auth
+            jwk-set-uri: http://localhost:8080/auth/realms/TODOAPP/protocol/openid-connect/certs
+            user-info: http://localhost:8080/auth/realms/TODOAPP/protocol/openid-connect/userinfo
+        registration:
+          keycloak:
+            client-id: myclient
+            client-secret: S8OSOooW0ts9p447goVIP86xWP7dR6GN
+            scope: open-id
+  application:
+    name: student-service
+
+  datasource:
+    url : jdbc:mysql://localhost:3306/db_student?useUnicode=yes&characterEncoding=UTF-8&characterSetResults=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username : SA
+    password : Haslo123
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        connection:
+          characterEncoding: UTF-8
+          CharSet: UTF-8
+          useUnicode: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none #18:00 filmik
