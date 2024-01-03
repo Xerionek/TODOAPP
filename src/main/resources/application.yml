@@ -1,0 +1,48 @@
+#dziala to w kolejnosci jak python to indetowanie ze jest np. spring.aplication.name
+#oraz spring.datasource.url, spring.datasource.username ale nie mozna przykladowo spring.datasource.jpa
+server:
+  port: 8081
+#całe to logging do kikoka oraz to od security do końca oraz od komentuj adama
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO
+  pattern:
+    console: "%d{dd-MM-yyyy HH:mm:ss} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n"
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          external:
+            issuer-uri: http://localhost:8080/realms/todoapp
+        registration:
+          external:
+            provider: external
+            client-name: todoapp-client
+            client-id: todoapp-client
+            client-secret: 1WO4hBIC6MFmh7uYlnvIKMDdWn2JOBsY
+            scope: openid,offline_access,profile
+            authorization-grant-type: authorization_code
+
+  application:
+    name: ToDoApp
+
+  datasource:
+    url : jdbc:mysql://localhost:3306/ToDoApp?useUnicode=yes&characterEncoding=UTF-8&characterSetResults=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username : root
+    password : haslo
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        connection:
+          characterEncoding: UTF-8
+          CharSet: UTF-8
+          useUnicode: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none #18:00 filmik
