@@ -6,7 +6,7 @@
           <textarea name="Desc" id="Desc" cols="30" rows="10" placeholder="Opis" v-model="Desc"></textarea>
           <label for="Deadline">Deadline</label>
           <input type="date" name="Deadline" id="Deadline" v-model="Deadline">
-          <button id="Add" @click="addToDo">Dodaj</button>
+          <button id="Add" @click="addToDo(); checkTodos()">Dodaj</button>
       </section>
   </div>
   <nav>
@@ -14,7 +14,8 @@
           <button id="Logout">Wyloguj</button>
       </router-link>
   </nav>
-  <main>
+  <main @load="checkTodos">
+      <p> {{ deadlineWarn }}</p>
       <table id="UserToDos">
           <tr>
               <th>Status</th>
@@ -25,15 +26,16 @@
           </tr>
           <tr v-for="(todo, index) in todos" :key="index">
           <td> 
-              <select name="" id="">
-                  <option value="0">Do zrobienia</option>
-                  <option value="1">Wykoane</option>
+              <select>
+                  <option>Do zrobienia</option>
+                  <option>Wykonane</option>
               </select>
           </td>
           <td>{{ todo.Title }}</td>
           <td>{{ todo.Desc }}</td>
           <td>{{ todo.DateAdded }}</td>
           <td>{{ todo.Deadline }}</td>
+          <td><button class="DelButton" @click="dellToDo(index)"></button></td>
       </tr>
       </table>
       <p id="Placeholder">Tutaj będą twoje cele...</p>
@@ -50,6 +52,8 @@ data() {
     Desc: '',
     Deadline: '',
     todos: [], 
+    color: 'orange',
+    deadlineWarn: ''
   };
 },
 methods: {
@@ -59,7 +63,7 @@ methods: {
   addToDo() {
     if (this.Title && this.Desc && this.Deadline) {
       const newTodo = {
-        Status: 'Pending',
+        Status: 0,
         Title: this.Title,
         Desc: this.Desc,
         DateAdded: new Date().toLocaleDateString(),
@@ -72,11 +76,22 @@ methods: {
       this.Desc = '';
       this.Deadline = '';
 
-      this.isActive = false;
+      this.$emit('childToParent', this.todos)
+      this.toggleToDoDialog();
     } else {
       console.error('Please fill in all fields');
     }
   },
+  checkTodos () {
+    for(let i = 0; i < this.todos.length; i++) {
+      // if (this.todos[i].DateAdded < this.todos[i].Deadline) {
+      //   this.deadlineWarn = "Masz zaległe zadania!"
+      // }
+    }
+  },
+  dellToDo(nroftodo) {
+    this.todos.splice(nroftodo, 1);
+  }
 }
 }
 </script>

@@ -153,6 +153,7 @@ td {
     border: 1px solid #eee;
     padding: 10px;
     text-align: center;
+    font-size: 80%;
 }
 
 .SeeUserToDos {
@@ -175,10 +176,30 @@ select {
     border: 0;
     background-color: transparent;
     border-radius: 10px;
-    color: orange;
+    color: violet;
     width: 10dvw;
 }
 
 .Delete {
-    color: red;
+    color: #eee;
+}
+
+.DelButton {
+    width: 40px;
+    height: 40px;
+    background: url("./img/trashicon.svg");
+    text-align: center;
+    background-color: transparent;
+    padding: 5px;
+    background-size: 100%;
+    transition-duration: 0.3s;
+}
+
+.DelButton:hover {
+    background: url("./img/trashiconHovered.svg");
+    background-size: 100%;
+}
+
+option {
+    color: #222;
 }
