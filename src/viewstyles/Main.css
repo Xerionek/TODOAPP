@@ -1,0 +1,205 @@
+* {
+    font-size: 1.05em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 2px;
+    color: #eee;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+    background-image: url("./img/ffflux (1).svg");
+    background-size: 100%;
+}
+
+nav {
+    height: 5dvh;
+    display: flex;
+    width: 100dvw;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 1px solid violet;
+    position: absolute;
+    top: 0;
+    box-shadow: 0 0 15px violet;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#Logout {
+    margin: 0 30px;
+}
+
+#AddToDo {
+    box-shadow: 0 0 10px violet;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 5dvh;
+    justify-content: center;
+    align-items: center;
+    height: 80dvh;
+}
+
+#Placeholder {
+    opacity: 80%;
+    user-select: none;
+    z-index: 1;
+}
+
+#Logout {
+    display: inline-block;
+    position: relative;
+  }
+  
+#Logout::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #eee;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+  
+#Logout:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+#blur {
+    z-index: 99;
+    background-color: rgba(red, green, blue, 0.5);
+    position: absolute;
+    backdrop-filter: blur(3px);
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#blur section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: rgb(34, 34, 34);
+    border-radius: 25px;
+    box-shadow: 0 0 15px black;
+    padding: 40px;
+}
+
+section input {
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid violet;
+}
+
+#Cancel {
+    align-self: flex-end !important;
+    font-size: 120%;
+}
+
+#Cancel:hover {
+    color: red;
+}
+
+#Add {
+    background-color: green;
+    border-radius: 10px;
+    width: 40%;
+    align-self: center;
+    padding: 10px;
+}
+
+textarea {
+    background-color: transparent;
+    border: 1px solid violet;
+}
+
+
+label {
+    margin-bottom: -30px;
+}
+.Display {
+    display: none !important;
+}
+
+
+table {
+    border-radius: 15px;
+    border-collapse: collapse;
+    border: 1px solid #eee;
+}
+
+td {
+    border: 1px solid #eee;
+    padding: 10px;
+    text-align: center;
+    font-size: 80%;
+}
+
+.SeeUserToDos {
+    background-color: green;
+    border-radius: 5px;
+}
+
+.DeleteUser {
+    background-color: red;
+    border-radius: 5px;
+}
+
+th {
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+select {
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    border-radius: 10px;
+    color: violet;
+    width: 10dvw;
+}
+
+.Delete {
+    color: #eee;
+}
+
+.DelButton {
+    width: 40px;
+    height: 40px;
+    background: url("./img/trashicon.svg");
+    text-align: center;
+    background-color: transparent;
+    padding: 5px;
+    background-size: 100%;
+    transition-duration: 0.3s;
+}
+
+.DelButton:hover {
+    background: url("./img/trashiconHovered.svg");
+    background-size: 100%;
+}
+
+option {
+    color: #222;
+}

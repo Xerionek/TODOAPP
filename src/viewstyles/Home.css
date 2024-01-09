@@ -1,0 +1,24 @@
+h1 {
+    font-size: 5em;
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
+    line-height: 3em;
+}
+
+.red {
+    color: brown;
+}
+
+.green {
+    color: green;
+}
+
+.Btn {
+    font-size: 1.25em;
+    background-color: forestgreen;
+    padding: 5px;
+    border-radius: 5px;
+}

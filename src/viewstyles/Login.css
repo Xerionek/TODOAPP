@@ -1,0 +1,77 @@
+#app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2dvh;
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+    background-image: url("./img/ffflux\ \(1\).svg");
+    background-size: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    box-shadow: 0 0 15px violet;
+    border-radius: 15px;
+    gap: 2dvh;
+}
+
+input {
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid violet;
+    background: transparent;
+    transition-duration: 0.3s;
+}
+
+button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 0.5dvw;
+}
+
+#LoginBtn {
+    background-color: green;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input:focus {
+    color: violet;
+}
+
+
+#RegisterBtn {
+    display: inline-block;
+    position: relative;
+  }
+  
+#RegisterBtn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #eee;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+  
+#RegisterBtn:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+#ErrorMsg {
+    color: red;
+}
